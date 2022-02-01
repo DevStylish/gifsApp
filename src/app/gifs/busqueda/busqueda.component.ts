@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GifsService } from '../service/gifs.service';
+import { ResultadoComponent } from '../resultado/resultado.component';
+import { Gif } from '../interfaces/gifs.interface';
 
 @Component({
   selector: 'app-busqueda',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusquedaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gifService: GifsService) { }
 
-  ngOnInit(): void {
+  realizarBusqueda(event: any){
+    
   }
+
+  ngOnInit(): void {}
 
 }
