@@ -14,7 +14,8 @@ export class GifsService {
 
   constructor(private http: HttpClient) {}
 
-  getHistorial(){
+  get historial(){
+    this.historialBusqueda = JSON.parse(localStorage.getItem('busquedas')!) || [];
     return [...this.historialBusqueda];
   }
 
@@ -22,11 +23,20 @@ export class GifsService {
     textGif = textGif.trim();
     
     if(textGif.length != 0){
-      
+      this.historialBusqueda = JSON.parse(localStorage.getItem('busquedas')!) || [];
+
+      console.log(this.historialBusqueda);
+
       if(!this.historialBusqueda.includes(textGif)){
+
         this.historialBusqueda.unshift(textGif);
-        this.historialBusqueda.splice(0,10);
       }
+
+      if(this.historialBusqueda.length > 10){
+        this.historialBusqueda.splice(this.historialBusqueda.length-1);
+      }
+
+      localStorage.setItem('busquedas', JSON.stringify(this.historialBusqueda));
 
       const params = new HttpParams()
         .set('api_key', this.apiKey)

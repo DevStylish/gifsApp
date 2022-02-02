@@ -6,16 +6,28 @@
 
     </h3>
 
-    <hr class="text-white" />
+    <hr class="text-white" *ngIf="historial.length != 0; else aDefault"/>
 
-    <div class="list-group list-reset">
+    <div class="list-group list-reset mb-2" *ngFor="let busqueda of historial">
 
-      <a href="#" class="list-group-item list-group-item-action">
+      <a href="#" class="list-group-item list-group-item-action" (click)="buscarGif(busqueda)">
 
-        Dashboard
+        {{busqueda}}
 
       </a>
 
     </div>
+
+    <ng-template #aDefault>
+      <div class="list-group list-reset">
+
+        <a href="#" class="list-group-item list-group-item-action">
+
+          Dashboard
+  
+        </a>
+
+      </div>
+    </ng-template>
 
   </div>

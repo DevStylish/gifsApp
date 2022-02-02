@@ -11,7 +11,7 @@ export class ResultadoComponent implements OnInit {
 
   constructor(private gifsService: GifsService) { }
 
-  mostrarGifs(){
+  get mostrarGifs(){
     return this.gifsService.resultados;
   }
 

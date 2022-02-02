@@ -15,7 +15,6 @@ export class BusquedaComponent implements OnInit {
   constructor(private gifService: GifsService) { }
 
   realizarBusqueda(){
-    console.log(this.textBusqueda);
     this.gifService.buscarGif(this.textBusqueda);
   }
 
