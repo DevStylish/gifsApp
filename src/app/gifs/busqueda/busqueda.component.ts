@@ -10,10 +10,13 @@ import { Gif } from '../interfaces/gifs.interface';
 })
 export class BusquedaComponent implements OnInit {
 
+  textBusqueda = "";
+
   constructor(private gifService: GifsService) { }
 
-  realizarBusqueda(event: any){
-    
+  realizarBusqueda(){
+    console.log(this.textBusqueda);
+    this.gifService.buscarGif(this.textBusqueda);
   }
 
   ngOnInit(): void {}
